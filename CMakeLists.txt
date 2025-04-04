@@ -2,11 +2,18 @@ cmake_minimum_required(VERSION 3.16)
 
 project(Lavoisian-Gui VERSION 0.1 LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup(REQUIRES 6.8)
+
+include_directories("C:/Extract/C++/vcpkg/installed/x64-windows/include")
+
+include_directories(include)
+
+add_subdirectory(deps/Lavoisian)
 
 qt_add_executable(appLavoisian-Gui
     main.cpp
@@ -24,6 +31,19 @@ qt_add_qml_module(appLavoisian-Gui
         RESOURCES .gitignore
         RESOURCES .gitignore
         QML_FILES qmls/pages/PeriodicTable.qml
+        QML_FILES
+        QML_FILES qmls/components/MainFooter.qml
+        QML_FILES qmls/pages/Home/PeriodicTable.qml
+        QML_FILES qmls/pages/Home/PeriodicTableSearch.qml
+        QML_FILES qmls/pages/Home/HomeLayout.qml
+        QML_FILES qmls/components/IconButtonText.qml
+        QML_FILES qmls/pages/Home/Tables.qml
+        QML_FILES qmls/pages/Home/User.qml
+        QML_FILES qmls/pages/Home/Laws.qml
+        RESOURCES Todos
+        RESOURCES resources/drawables/account_circle_24dp.svg resources/drawables/alt_route_24dp.svg resources/drawables/arrow_drop_down_24dp.svg resources/drawables/description_24dp.svg resources/drawables/filter_alt_24dp.svg resources/drawables/home_24dp.svg resources/drawables/search_24dp.svg resources/drawables/table_24dp.svg resources/drawables/table_view_24dp.svg
+        SOURCES src/AtomModel.cpp
+        SOURCES include/lvn-gui/AtomModel.h
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -38,7 +58,7 @@ set_target_properties(appLavoisian-Gui PROPERTIES
 )
 
 target_link_libraries(appLavoisian-Gui
-    PRIVATE Qt6::Quick
+    PRIVATE Qt6::Quick lavoisian
 )
 
 include(GNUInstallDirs)

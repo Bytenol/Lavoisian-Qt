@@ -6,37 +6,35 @@ Item {
     id: periodicTable
 
     Rectangle {
+        id: pt
         anchors.fill: parent
 
-        Grid {
-            columns: 1
-            rows: 3
+
+        Column {
             anchors.fill: parent
 
             Rectangle {
-                Layout.fillWidth: true
+                id: navBar
+                width: parent.width
                 height: parent.height * 0.1
-                Text {
-                    text: "Nav Bar"
-                }
+                color: "#222"
             }
 
             Rectangle {
-                Layout.fillWidth: true
+                id: main
+                width: parent.width
                 height: parent.height * 0.8
-                Text {
-                    text: "Body Bar"
-                }
+                color: "red"
             }
+
 
             Rectangle {
-                Layout.fillWidth: true
+                id: footer
+                width: parent.width
                 height: parent.height * 0.1
-                Text {
-                    text: "Footer Bar"
-                }
-            }
+                color: "#222"
 
-        }   // Grid ends
+            }
+        }
     }
 }

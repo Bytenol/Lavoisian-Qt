@@ -1,18 +1,24 @@
 import QtQuick
 import QtQuick.Controls
+// import "qmls/pages/Home"
 
 Window {
+
+    property string bgColor: "#222"
+    property string bgColor1: "#333"
+    property string textColor: "#ccc"
+
     id: window
     width: 480
     height: 640
     visible: true
-    color: "#222"
+    color: bgColor
     title: qsTr("Lavoisian")
 
-    StackView {
-        id: stackView
+
+    Loader {
+        source: "qmls/pages/Home/HomeLayout.qml"
         anchors.fill: parent
-        initialItem: "qmls/pages/PeriodicTable.qml"
     }
 
 }

@@ -1,0 +1,17 @@
+1.Window
+    - Ask to close the window
+    - [Delay] Fixed unresizable size
+
+Make sure navigation is working well
+    - Push and Pop should not be repeted for the same page
+    - Go back to home
+    - Ask to close the application
+
+
+
+TODOS
+
+PeriodicTable
+    - Make scrollable
+    - Make clickable to detail's page
+    - Add filters
